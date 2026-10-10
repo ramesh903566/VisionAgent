@@ -22,7 +22,7 @@ SEE → PROTECT → REASON → ACT → VERIFY → (loop)
 | 11 | Action schema: `action_id`, `confidence`, per-action required fields | 2.4, T5.2 |
 | 12 | Extra internal metrics: task success, privacy leakage, action success | Phase 8 |
 | 13 | Targets labelled **internal engineering targets**, not SIH requirements | 1.4, Phase 8 |
-| 14 | Timeline stretched to ~10 weeks (8 if the mentor says Python-only is fine) | 2.6 |
+| 14 | Timeline mapped to 10 full weeks | 2.6 |
 | 15 | **Multi-tab control is core:** target-tab assignment, locking, ownership, pause/stop, isolated state | 1.2, T6.7, T10.4 |
 | 16 | **Conversational Interface is core:** one agent state shared by Chat + Voice | 2.1, T6.8, T10.3 |
 | 17 | **Chat History + Settings are core frontend features** | T6.9, T6.10, T10.2 |
@@ -63,7 +63,7 @@ Today's AI browser agents send screenshots or page data to a cloud AI, which dec
 ## 1.4 Assumptions and things to verify
 
 1. **Positioning:** "vision-first, privacy-aware browser perception." Do **not** claim "DOM-independent." Screenshot perception is the primary runtime mechanism. Local DOM metadata (e.g., `type="password"`) is an auxiliary signal that makes privacy stronger. DOM must never substitute for the visual-perception requirement, and raw DOM never leaves the device.
-2. **Python vs extension:** Python + Playwright is the reference implementation and evaluation environment. The browser extension (ONNX Runtime Web) is the intended client deployment. **Confirm with your mentor** whether a Python client is acceptable for the finale. If yes, Phase 10 can shrink to a proof-of-concept.
+2. **Python vs extension:** Phase 10 is CORE and mandatory. Python + Playwright remains the reference implementation and evaluation environment. The Chrome/Chromium Manifest V3 extension is the intended final client deployment.
 3. **Metric weights** come from the problem summary. Verify against the official statement.
 4. **Server LLM/VLM:** which hosted API or local model is allowed, and whether cost is covered. Verify.
 5. **Deadline unknown.** Plan assumes ~10 weeks (8 if extension is optional).
@@ -250,7 +250,7 @@ With 3 people, merge D into A and C. With 2, do A+B and C+D. The extension port 
 | 9 | Phase 8 (final evaluation, both clients) |
 | 10 | Phase 9 (demo, docs, PPT), buffer |
 
-If your mentor confirms a Python client is acceptable: drop Phase 10 to an optional proof-of-concept and finish in ~8 weeks.
+Phase 10 is the final browser extension integration and deployment phase, and is CORE. Extension foundation may begin in Week 5 (spike), but the final integration completes in Weeks 7-8.
 
 ---
 
@@ -766,7 +766,7 @@ Build the MVP first: **OCR + regex + validators + DOM signals + field context.**
 3. Record differences and reasons.
 4. Confirm a payload capture in DevTools shows no raw PII.
 
-**Done when:** the extension completes the demo scenarios end-to-end, passes the leak tests, and results are logged for Phase 8. (If the mentor accepts a Python client, stop after T10.1 and T10.5-lite.)
+**Done when:** the extension completes the demo scenarios end-to-end, passes the leak tests, and results are logged for Phase 8.
 
 ---
 
